@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Help & Support – SpecimenPro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #232323; color: #dbeafe; }
+    header { background: #171717; color: #60A5FA; padding: 2rem 1rem 1rem 1rem; text-align: center; position: relative; }
+    .logo { display: block; margin: 0 auto 1rem auto; width: 120px; height: 120px; border-radius: 20px; background: #232323; }
+    main { max-width: 700px; margin: 2rem auto; padding: 1rem; background: #171717; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.16);}
+    h1, h2 { margin-top: 0; color: #60A5FA; }
+    form { margin-top: 2rem; }
+    label { display: block; margin: 0.5rem 0 0.2rem; color: #60A5FA; }
+    input, textarea { width: 100%; padding: 0.5rem; border-radius: 4px; border: 1px solid #374151; margin-bottom: 1rem; background: #232323; color: #dbeafe;}
+    button { background: #60A5FA; color: #232323; border: none; border-radius: 4px; padding: 0.75rem 1.5rem; cursor: pointer; font-size: 1rem;}
+    button:hover { background: #3b82f6; }
+    .footer { text-align: center; color: #94a3b8; margin: 3rem 0 1rem; }
+    a { color: #60A5FA; }
+    .back-link { display: inline-block; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="docs/logo.png" alt="SpecimenPro Logo" class="logo">
+    <h1>Help & Support</h1>
+    <p>We're here to help you with SpecimenPro</p>
+  </header>
+  <main>
+    <a href="index.html" class="back-link">← Back to Home</a>
+    
+    <section>
+      <h2>Submit a Help Request</h2>
+      <p>Having trouble with SpecimenPro? Need assistance or have a question? Fill out the form below and we'll get back to you as soon as possible!</p>
+      
+      <form action="https://formspree.io/f/xpwyjnbg" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="email">Your Email</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="message">Describe your issue or question</label>
+        <textarea name="message" id="message" rows="5" required></textarea>
+
+        <button type="submit">Send Help Request</button>
+      </form>
+      <p>We'll get back to you as soon as possible!</p>
+    </section>
+  </main>
+  <div class="footer">
+    &copy; 2025 SpecimenPro &mdash; 
+    <a href="https://aaroncelestian.github.io/SpecimenPro-Webpage/privacy_policy_webpage.html">Privacy Policy</a> &mdash; 
+    <a href="https://aaroncelestian.github.io/SpecimenPro-Webpage/index.html">Home</a>
+  </div>
+</body>
+</html>

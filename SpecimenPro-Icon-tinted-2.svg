@@ -1,7 +1,0 @@
-<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1024" height="1024" rx="180" fill="#2c5f8d"/>
-  <rect x="247" y="247" width="530" height="530" rx="16" fill="none" stroke="#ffffff" stroke-width="14"/>
-  <text x="290" y="340" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="72" font-weight="600" fill="#ffffff">25</text>
-  <text x="512" y="590" font-family="'Courier New', Courier, monospace" font-size="240" font-weight="500" fill="#ffffff" text-anchor="middle" letter-spacing="-30">Sp</text>
-  <text x="734" y="710" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="60" font-weight="500" fill="rgba(255,255,255,0.6)" text-anchor="end">Pro</text>
-</svg>

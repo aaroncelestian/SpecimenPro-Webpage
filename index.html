@@ -59,10 +59,17 @@
             color: var(--primary-color);
         }
 
-        .logo svg {
+        .logo-placeholder {
             width: 50px;
             height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
         }
 
         .nav-links {
@@ -390,19 +397,7 @@
     <header>
         <nav class="container">
             <div class="logo">
-                <svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="1024" height="1024" rx="180" fill="url(#bg-gradient)"/>
-                  <defs>
-                    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style="stop-color:#2c5f8d;stop-opacity:1" />
-                      <stop offset="100%" style="stop-color:#4a90c8;stop-opacity:1" />
-                    </linearGradient>
-                  </defs>
-                  <rect x="247" y="247" width="530" height="530" rx="16" fill="none" stroke="#ffffff" stroke-width="14"/>
-                  <text x="290" y="340" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="72" font-weight="600" fill="#e67e22">25</text>
-                  <text x="512" y="590" font-family="'Courier New', Courier, monospace" font-size="240" font-weight="500" fill="#ffffff" text-anchor="middle" letter-spacing="-30">Sp</text>
-                  <text x="734" y="710" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="60" font-weight="500" fill="rgba(255,255,255,0.6)" text-anchor="end">Pro</text>
-                </svg>
+                <div class="logo-placeholder">S</div>
                 <span>SpecimenPro</span>
             </div>
             <ul class="nav-links">
@@ -607,6 +602,24 @@
             
             <div class="use-cases-grid">
                 <div class="use-case-card">
+                    <div class="use-case-icon">💎</div>
+                    <h3>Mineral Collections</h3>
+                    <p>Catalog minerals and crystals with photos, measurements, and locality data</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">🎴</div>
+                    <h3>Pokémon Card Collection</h3>
+                    <p>Track your card collection with photos, condition notes, and set information</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">🧱</div>
+                    <h3>LEGO Collection</h3>
+                    <p>Organize LEGO sets with photos, piece counts, and build status tracking</p>
+                </div>
+
+                <div class="use-case-card">
                     <div class="use-case-icon">⛰️</div>
                     <h3>Field Expeditions</h3>
                     <p>Document specimens offline during geological and paleontological surveys</p>
@@ -628,12 +641,6 @@
                     <div class="use-case-icon">🦴</div>
                     <h3>Paleontology</h3>
                     <p>Document fossils and paleontological specimens in the field</p>
-                </div>
-
-                <div class="use-case-card">
-                    <div class="use-case-icon">🌿</div>
-                    <h3>Biology</h3>
-                    <p>Catalog biological specimens with photos and detailed observations</p>
                 </div>
 
                 <div class="use-case-card">
@@ -665,10 +672,13 @@
                     <li>iCloud sync</li>
                     <li>Complete data export</li>
                     <li>Offline operation</li>
-                    <li>Free updates</li>
+                    <li>Free updates for current major version</li>
                 </ul>
                 
                 <a href="#" class="cta-button">Download Now</a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-light);">
+                    <a href="privacy.html" style="color: var(--secondary-color);">Privacy Policy</a>
+                </p>
             </div>
         </div>
     </section>

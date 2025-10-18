@@ -131,9 +131,12 @@
             margin-bottom: 2rem;
         }
 
+        /* Responsive Design */
+        
+        /* Tablets (481px - 768px) */
         @media (max-width: 768px) {
             .container {
-                padding: 20px 15px;
+                padding: 30px 20px;
             }
 
             h1 {
@@ -146,6 +149,97 @@
 
             h3 {
                 font-size: 1.2em;
+            }
+
+            ul, ol {
+                margin-left: 20px;
+            }
+
+            .highlight-box,
+            .contact-info {
+                padding: 15px;
+            }
+        }
+
+        /* Mobile devices (320px - 480px) */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            header {
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 1.75em;
+            }
+
+            .last-updated {
+                font-size: 0.85em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+                margin-top: 30px;
+            }
+
+            h3 {
+                font-size: 1.15em;
+                margin-top: 20px;
+            }
+
+            p {
+                font-size: 0.95em;
+            }
+
+            ul, ol {
+                margin-left: 20px;
+                font-size: 0.95em;
+            }
+
+            li {
+                margin-bottom: 10px;
+            }
+
+            .highlight-box {
+                padding: 12px;
+                margin: 15px 0;
+            }
+
+            .contact-info {
+                padding: 15px;
+                margin: 15px 0;
+            }
+
+            .footer {
+                margin-top: 40px;
+                padding-top: 20px;
+                font-size: 0.85em;
+            }
+        }
+
+        /* Extra small devices (max 320px) */
+        @media (max-width: 320px) {
+            .container {
+                padding: 15px 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.25em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            p, ul, ol {
+                font-size: 0.9em;
             }
         }
     </style>

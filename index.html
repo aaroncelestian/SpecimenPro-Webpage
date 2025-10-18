@@ -366,8 +366,53 @@
             opacity: 0.7;
         }
 
-        /* Responsive */
+        /* Responsive Design */
+        
+        /* Large tablets and small desktops (768px - 1024px) */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 30px;
+            }
+
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .features-grid,
+            .use-cases-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .screenshots-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Tablets (481px - 768px) */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1.5rem 0;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -376,18 +421,169 @@
                 font-size: 1.2rem;
             }
 
+            .hero p {
+                font-size: 1rem;
+            }
+
             .section-title {
                 font-size: 2rem;
             }
 
+            .features,
+            .screenshots,
+            .use-cases,
+            .pricing {
+                padding: 60px 0;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .use-cases-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .feature-card,
+            .use-case-card {
+                padding: 1.5rem;
+            }
+
+            .pricing-card {
+                padding: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile devices (320px - 480px) */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .logo-placeholder,
+            .logo img {
+                width: 40px;
+                height: 40px;
+            }
+
             .nav-links {
-                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.75rem;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+                padding: 0 10px;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .features,
+            .screenshots,
+            .use-cases,
+            .pricing {
+                padding: 40px 0;
             }
 
             .features-grid,
             .screenshots-grid,
             .use-cases-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .feature-card,
+            .use-case-card {
+                padding: 1.5rem;
+            }
+
+            .feature-card h3,
+            .use-case-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .feature-icon,
+            .use-case-icon {
+                font-size: 2.5rem;
+            }
+
+            .pricing-card {
+                padding: 1.5rem;
+                margin: 2rem auto;
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .video-section {
+                padding: 40px 0;
+            }
+
+            .video-placeholder {
+                font-size: 1rem;
+                padding: 20px;
+            }
+        }
+
+        /* Extra small devices (max 320px) */
+        @media (max-width: 320px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 10px 25px;
+                font-size: 0.95rem;
             }
         }
     </style>

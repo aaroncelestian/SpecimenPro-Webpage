@@ -1,0 +1,120 @@
+═══════════════════════════════════════════════════════════════════
+                    SpecimenPro - For App Reviewers
+═══════════════════════════════════════════════════════════════════
+
+🚀 QUICK START (30 seconds)
+───────────────────────────────────────────────────────────────────
+1. Launch app → Demo data loads automatically
+2. Tap "Demo Mineral Collection"
+3. See 5 specimens with complete documentation
+4. Tap QR scanner icon (top right)
+5. Scan provided QR code images
+6. Explore specimen details and transactions
+
+✅ WHAT'S PRE-LOADED
+───────────────────────────────────────────────────────────────────
+• 5 specimen records with photos and metadata
+• 3 transactions (loan, photography, exhibition)
+• 2 specimens with image annotations
+• 1 voice note attachment
+• Physical location data (Cabinet A, Drawers 1-5)
+• Collector: Aaron Celestian, Ph.D. (app developer)
+
+📱 KEY FEATURES TO TEST
+───────────────────────────────────────────────────────────────────
+✓ QR Code Scanning - Scan provided codes to open specimens
+✓ Transaction Tracking - View loan to Natural History Museum
+✓ Voice Notes - Play audio note on SPECIMEN001
+✓ AR Measurements - Measure any object with camera
+✓ Photo Documentation - Multiple photo types per specimen
+✓ Location Management - Physical storage tracking
+✓ Export Data - CSV and SQLite export options
+
+🎯 TEST SCENARIOS
+───────────────────────────────────────────────────────────────────
+Scenario 1: QR Code Workflow (1 min)
+  → Tap QR scanner
+  → Scan SPECIMEN001 code
+  → Opens specimen instantly
+
+Scenario 2: Loan Tracking (1 min)
+  → Open SPECIMEN001
+  → View active loan transaction
+  → See contact: Dr. Sarah Johnson
+  → Institution: Natural History Museum
+  → Due date: 30 days from now
+
+Scenario 3: Voice Note (30 sec)
+  → Open SPECIMEN001
+  → Scroll to Voice Notes
+  → Tap play button
+
+Scenario 4: AR Measurement (1 min)
+  → Open any specimen
+  → Tap AR Measurement
+  → Point at flat surface
+  → Place measurement points
+
+💡 TERMINOLOGY NOTE
+───────────────────────────────────────────────────────────────────
+"Transactions" = specimen movements and activities
+  • Loans (temporary transfers to institutions)
+  • Photography (documentation sessions)
+  • Exhibitions (public display periods)
+  • Sales/Trades (permanent transfers)
+
+This is standard museum collection management terminology
+(similar to EMu, Specify, Arctos, and other professional systems).
+
+NOT financial transactions.
+
+🔒 PRIVACY
+───────────────────────────────────────────────────────────────────
+✓ No data collection or analytics
+✓ No third-party SDKs
+✓ All data stored locally or in user's private iCloud
+✓ No external network requests
+✓ Camera/microphone used only for local features
+
+🌐 OFFLINE OPERATION
+───────────────────────────────────────────────────────────────────
+✓ Works completely offline - no internet required
+✓ iCloud sync is optional and can be disabled
+✓ All features available without connectivity
+
+📸 QR CODES PROVIDED
+───────────────────────────────────────────────────────────────────
+SPECIMEN001 - Quartz Crystal Cluster (Active Loan)
+SPECIMEN002 - Pyrite Cube (Photography Session)
+SPECIMEN003 - Amethyst Geode (Exhibition Record)
+
+👨‍🔬 ABOUT THE DEVELOPER
+───────────────────────────────────────────────────────────────────
+Aaron Celestian, Ph.D.
+Professional mineralogist
+App designed for real-world field research and museum collections
+
+🎓 TARGET USERS
+───────────────────────────────────────────────────────────────────
+• Geologists and field researchers
+• Museum collection managers
+• Paleontologists and biologists
+• Archaeological teams
+• Natural history collections
+• University research labs
+
+✨ WHAT MAKES THIS APP SPECIAL
+───────────────────────────────────────────────────────────────────
+• Built by a scientist for scientists
+• Offline-first design for remote field work
+• Professional-grade museum workflows
+• Privacy-focused - your data stays yours
+• No subscription - one-time purchase
+
+⏱️ ESTIMATED REVIEW TIME
+───────────────────────────────────────────────────────────────────
+10-15 minutes to test all major features
+
+═══════════════════════════════════════════════════════════════════
+                    Thank you for reviewing! 🎉
+═══════════════════════════════════════════════════════════════════

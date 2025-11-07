@@ -248,12 +248,22 @@
     <div class="container">
         <header>
             <h1>Privacy Policy for SpecimenPro</h1>
-            <p class="last-updated">Last Updated: October 8, 2025</p>
+            <p class="last-updated">Last Updated: November 6, 2025</p>
         </header>
 
         <section>
             <h2>Introduction</h2>
             <p>SpecimenPro ("we," "our," or "the app") is committed to protecting your privacy. This Privacy Policy explains how SpecimenPro collects, uses, stores, and protects your information when you use our mobile application.</p>
+        </section>
+
+        <section>
+            <h2>App Versions</h2>
+            <p>SpecimenPro is available in two versions:</p>
+            <ul>
+                <li><strong>SpecimenPro Lite</strong> (Free): Access to all features with limits on collection creation and objects per collection</li>
+                <li><strong>SpecimenPro Full</strong> (One-time purchase): Unlimited collections and objects</li>
+            </ul>
+            <p>Both versions have identical privacy practices. Upgrading to Full version does not change how your data is collected, stored, or used.</p>
         </section>
 
         <section>
@@ -266,15 +276,24 @@
                 <li><strong>Specimen Data</strong>: Object numbers, specimen IDs, metadata, tags, and custom field data</li>
                 <li><strong>Photos</strong>: Images you capture or select, including drawer photos, object photos, detail photos, and custom photo types</li>
                 <li><strong>Voice Notes</strong>: Audio recordings you create and their associated titles</li>
-                <li><strong>LiDAR Scans</strong>: 3D scans captured using your device's LiDAR sensor (on supported devices)</li>
                 <li><strong>Location Data</strong>: GPS coordinates and location information you manually enter for field collections</li>
                 <li><strong>QR Codes</strong>: QR code data you generate or scan for specimen identification</li>
+                <li><strong>Event Participation</strong>: When you participate in virtual events (mineral shows, fossil fairs), your progress and collected specimens are stored locally</li>
             </ul>
 
             <h3>Automatically Collected Data</h3>
             <ul>
-                <li><strong>Device Information</strong>: The app may access your device's camera, microphone, and LiDAR sensor (with your permission) to capture photos, voice notes, and 3D scans</li>
+                <li><strong>Device Information</strong>: The app may access your device's camera and microphone (with your permission) to capture photos and voice notes</li>
                 <li><strong>File System Access</strong>: The app accesses your device's local storage to save and retrieve database files</li>
+            </ul>
+
+            <h3>Purchase Information</h3>
+            <p>When you purchase the Full version upgrade:</p>
+            <ul>
+                <li><strong>Payment Processing</strong>: All payment transactions are processed by Apple through the App Store. We do not collect, store, or have access to your payment information (credit card numbers, billing addresses, etc.)</li>
+                <li><strong>Purchase Verification</strong>: The app verifies your purchase status through Apple's StoreKit framework to determine your app version (Lite or Full)</li>
+                <li><strong>Purchase Records</strong>: Apple maintains records of your purchases. We only store a local flag on your device indicating whether you have purchased the Full version</li>
+                <li><strong>Install Date</strong>: For grandfathering purposes, the app records the first launch date locally on your device to determine if you are eligible for automatic Full version access</li>
             </ul>
         </section>
 
@@ -285,8 +304,10 @@
                 <li><strong>Data Management</strong>: To store, organize, and manage your specimen collections</li>
                 <li><strong>Export/Import</strong>: To enable you to backup, export, and import your data</li>
                 <li><strong>QR Code Generation</strong>: To create QR codes for specimen identification and tracking</li>
-                <li><strong>3D Scanning</strong>: To capture and store LiDAR scans of specimens (on supported devices)</li>
                 <li><strong>Local Storage</strong>: All data is stored locally on your device in a SQLite database</li>
+                <li><strong>Events</strong>: To fetch and display virtual event information (mineral shows, fossil fairs) and track your participation progress</li>
+                <li><strong>Purchase Verification</strong>: To verify your Full version purchase status through Apple's StoreKit and enforce appropriate feature limits</li>
+                <li><strong>Grandfathering</strong>: To determine if you installed the app before the Lite version was introduced and automatically grant Full version access</li>
             </ol>
         </section>
 
@@ -299,7 +320,8 @@
             </div>
             <ul>
                 <li>Data is saved in your device's app-specific documents directory</li>
-                <li>No data is transmitted to external servers or cloud services by default</li>
+                <li>Your specimen data is never transmitted to external servers</li>
+                <li>Event information is downloaded from our server but your event progress is stored locally only</li>
                 <li>Your data remains on your device unless you explicitly export or share it</li>
             </ul>
 
@@ -307,7 +329,7 @@
             <ul>
                 <li>The app uses iOS security features to protect your data</li>
                 <li>Database files are stored in the app's sandboxed environment</li>
-                <li>Access to camera, microphone, and LiDAR requires explicit user permission</li>
+                <li>Access to camera and microphone requires explicit user permission</li>
                 <li>Exported files are protected by iOS file system permissions</li>
             </ul>
         </section>
@@ -336,7 +358,6 @@
             <ul>
                 <li><strong>Camera</strong>: To capture photos of specimens and scan QR codes</li>
                 <li><strong>Microphone</strong>: To record voice notes</li>
-                <li><strong>LiDAR Sensor</strong>: To capture 3D scans (on supported devices)</li>
                 <li><strong>Photo Library</strong>: To save and access photos</li>
                 <li><strong>File System</strong>: To import/export database files</li>
             </ul>
@@ -367,10 +388,8 @@
         </section>
 
         <section>
-            <h2>Children's Privacy and Intended Audience</h2>
-            <p>SpecimenPro is designed specifically for professional researchers, museum curators, educators, students, and individuals conducting scientific specimen collection and documentation work. The app's functionality is intended for users engaged in fieldwork, laboratory research, and academic study.</p>
-            <p>While the app contains no inappropriate content and maintains a 4+ content rating, its features and interface are designed for users with the capability and training to conduct scientific data collection and specimen management. The app does not knowingly collect personal information from children under 13 without parental consent, in compliance with the Children's Online Privacy Protection Act (COPPA).</p>
-            <p>Parents and educators supervising minors using this app for educational purposes should review this Privacy Policy and ensure appropriate oversight of data collection activities.</p>
+            <h2>Children's Privacy</h2>
+            <p>SpecimenPro complies with the Children's Online Privacy Protection Act (COPPA) and is rated by Apple to be 4+ years old. The app is designed for professional and educational use by researchers, curators, and students.</p>
         </section>
 
         <section>
@@ -403,7 +422,25 @@
 
         <section>
             <h2>Third-Party Services</h2>
-            <p>SpecimenPro does not integrate with any third-party analytics, advertising, or tracking services. The app operates entirely offline and does not communicate with external servers.</p>
+            <p>SpecimenPro does not integrate with any third-party analytics, advertising, or tracking services. The app communicates with external servers only for the following purposes:</p>
+            
+            <h3>Events Server</h3>
+            <ul>
+                <li><strong>Purpose</strong>: To download virtual event information (mineral shows, fossil fairs, etc.)</li>
+                <li><strong>Server</strong>: GitHub Pages (aaroncelestian.github.io/specimenpro-events)</li>
+                <li><strong>Data Downloaded</strong>: Event details, specimen information, QR codes, and event schedules</li>
+                <li><strong>Data Sent</strong>: None - the app only downloads event information, it does not upload any of your data</li>
+                <li><strong>Caching</strong>: Event data is cached locally for 1 hour to minimize server requests</li>
+                <li><strong>Privacy</strong>: Your event progress and participation are stored only on your device and never transmitted to our servers</li>
+            </ul>
+
+            <h3>Apple StoreKit</h3>
+            <ul>
+                <li><strong>Purpose</strong>: To process in-app purchases and verify purchase status for the Full version upgrade</li>
+                <li><strong>Data Shared</strong>: Purchase verification requests are sent to Apple's servers through the StoreKit framework</li>
+                <li><strong>Apple's Privacy</strong>: All payment processing and purchase records are governed by Apple's Privacy Policy</li>
+                <li><strong>No Personal Data</strong>: We do not receive or have access to your payment information, Apple ID, or other personal details from Apple</li>
+            </ul>
         </section>
 
         <section>
@@ -411,7 +448,7 @@
             <div class="contact-info">
                 <p>If you have questions or concerns about this Privacy Policy or your data, please contact:</p>
                 <p><strong>Developer</strong>: Aaron Celestian<br>
-                <strong>Email</strong>: <a href="mailto:aaron.celestian@gmail.com">aaron.celestian@gmail.com</a><br>
+                <strong>Email</strong>: [Your contact email]<br>
                 <strong>App</strong>: SpecimenPro</p>
             </div>
         </section>
@@ -422,10 +459,24 @@
             <h3>Data Types Stored</h3>
             <ul>
                 <li><strong>Collections</strong>: Name, type, date, collector, custom fields, custom photo types</li>
-                <li><strong>Objects</strong>: Number, specimen ID, metadata (JSON), tags (JSON), LiDAR scan data (BLOB)</li>
+                <li><strong>Objects</strong>: Number, specimen ID, metadata (JSON), tags (JSON)</li>
                 <li><strong>Photos</strong>: Image data (BLOB), thumbnails (BLOB), photo type, creation date</li>
                 <li><strong>Voice Notes</strong>: Audio data (BLOB), duration, title, creation date</li>
                 <li><strong>Database Schema</strong>: Version 5 (SQLite)</li>
+                <li><strong>License Information</strong> (stored in UserDefaults, not in database):
+                    <ul>
+                        <li>Install date (for grandfathering)</li>
+                        <li>Purchase status flag (boolean)</li>
+                        <li>Grandfathered status flag (boolean)</li>
+                    </ul>
+                </li>
+                <li><strong>Event Progress</strong> (stored in UserDefaults, not in database):
+                    <ul>
+                        <li>Event participation progress</li>
+                        <li>Collected specimens per event</li>
+                        <li>Cached event data (expires after 1 hour)</li>
+                    </ul>
+                </li>
             </ul>
 
             <h3>Data Format</h3>
@@ -434,7 +485,6 @@
                 <li>Export Format: ZIP archive containing SQLite database and README</li>
                 <li>Image Format: JPEG/PNG (compressed)</li>
                 <li>Audio Format: M4A/WAV</li>
-                <li>3D Scans: USDZ format</li>
             </ul>
 
             <h3>Data Encryption</h3>

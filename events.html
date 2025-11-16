@@ -373,26 +373,38 @@
         ];
 
         function categorizeEvents(events) {
-            const now = new Date();
-            now.setHours(0, 0, 0, 0);
-            
             const live = [];
             const upcoming = [];
             const past = [];
             
             events.forEach(event => {
-                const startDate = new Date(event.date || event.startDate);
-                const endDate = event.endDate ? new Date(event.endDate) : startDate;
-                
-                startDate.setHours(0, 0, 0, 0);
-                endDate.setHours(23, 59, 59, 999);
-                
-                if (now >= startDate && now <= endDate) {
-                    live.push(event);
-                } else if (now < startDate) {
-                    upcoming.push(event);
+                // Use the status field from JSON if available, otherwise calculate from dates
+                if (event.status) {
+                    if (event.status === 'live') {
+                        live.push(event);
+                    } else if (event.status === 'upcoming') {
+                        upcoming.push(event);
+                    } else if (event.status === 'past') {
+                        past.push(event);
+                    }
                 } else {
-                    past.push(event);
+                    // Fallback to date calculation for events without status field
+                    const now = new Date();
+                    now.setHours(0, 0, 0, 0);
+                    
+                    const startDate = new Date(event.date || event.startDate);
+                    const endDate = event.endDate ? new Date(event.endDate) : startDate;
+                    
+                    startDate.setHours(0, 0, 0, 0);
+                    endDate.setHours(23, 59, 59, 999);
+                    
+                    if (now >= startDate && now <= endDate) {
+                        live.push(event);
+                    } else if (now < startDate) {
+                        upcoming.push(event);
+                    } else {
+                        past.push(event);
+                    }
                 }
             });
             
@@ -570,6 +582,9 @@
                 const mappedEvents = events.map(event => ({
                     title: event.title,
                     date: event.startDate,
+                    startDate: event.startDate,
+                    endDate: event.endDate || null,
+                    status: event.status || null,
                     description: event.description,
                     link: event.link || null,
                     type: event.type,

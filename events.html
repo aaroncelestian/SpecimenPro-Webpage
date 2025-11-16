@@ -133,6 +133,98 @@
             color: var(--secondary-color);
         }
         
+        .events-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        .section-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .section-badge.live {
+            background: #28a745;
+            animation: pulse 2s infinite;
+        }
+        
+        .section-badge.upcoming {
+            background: #17a2b8;
+        }
+        
+        .section-badge.past {
+            background: #6c757d;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .collapse-toggle {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .collapse-toggle:hover {
+            background: var(--bg-light);
+        }
+        
+        .collapse-toggle svg {
+            transition: transform 0.3s;
+        }
+        
+        .collapse-toggle.collapsed svg {
+            transform: rotate(-90deg);
+        }
+        
+        .collapsible-content {
+            max-height: 5000px;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.3s;
+            opacity: 1;
+        }
+        
+        .collapsible-content.collapsed {
+            max-height: 0;
+            opacity: 0;
+        }
+        
+        .empty-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            color: var(--text-light);
+        }
+        
         @media (max-width: 768px) {
             .events-container {
                 padding: 20px 15px;
@@ -180,8 +272,46 @@
             <p>Stay updated with the latest releases, features, and community news from SpecimenPro</p>
         </div>
 
+        <!-- Live Events -->
+        <div class="events-section" id="liveSection" style="display: none;">
+            <div class="section-header">
+                <h2>Live Events</h2>
+                <span class="section-badge live" id="liveBadge">0</span>
+            </div>
+            <div class="events-list" id="liveEvents"></div>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div class="events-section" id="upcomingSection" style="display: none;">
+            <div class="section-header">
+                <h2>Upcoming Events</h2>
+                <span class="section-badge upcoming" id="upcomingBadge">0</span>
+            </div>
+            <div class="events-list" id="upcomingEvents"></div>
+        </div>
+
+        <!-- Past Events -->
+        <div class="events-section" id="pastSection" style="display: none;">
+            <div class="section-header">
+                <h2>Past Events</h2>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span class="section-badge past" id="pastBadge">0</span>
+                    <button class="collapse-toggle" id="pastToggle" onclick="togglePastEvents()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                        <span id="toggleText">Collapse</span>
+                    </button>
+                </div>
+            </div>
+            <div class="collapsible-content" id="pastEventsContent">
+                <div class="events-list" id="pastEvents"></div>
+            </div>
+        </div>
+
+        <!-- Loading/Empty State -->
         <div class="events-list" id="eventsList">
-            <!-- Events will be loaded here -->
+            <!-- Fallback container -->
         </div>
 
         <div class="github-link">
@@ -250,23 +380,38 @@
             }
         ];
 
-        function loadEvents(events = null) {
-            const eventsList = document.getElementById('eventsList');
+        function categorizeEvents(events) {
+            const now = new Date();
+            now.setHours(0, 0, 0, 0);
             
-            if (!events || events.length === 0) {
-                eventsList.innerHTML = `
-                    <div class="no-events">
-                        <h3>No events available</h3>
-                        <p>Check back soon for updates on SpecimenPro releases and news.</p>
-                    </div>
-                `;
-                return;
-            }
-
-            eventsList.innerHTML = events.map(event => `
+            const live = [];
+            const upcoming = [];
+            const past = [];
+            
+            events.forEach(event => {
+                const startDate = new Date(event.date || event.startDate);
+                const endDate = event.endDate ? new Date(event.endDate) : startDate;
+                
+                startDate.setHours(0, 0, 0, 0);
+                endDate.setHours(23, 59, 59, 999);
+                
+                if (now >= startDate && now <= endDate) {
+                    live.push(event);
+                } else if (now < startDate) {
+                    upcoming.push(event);
+                } else {
+                    past.push(event);
+                }
+            });
+            
+            return { live, upcoming, past };
+        }
+        
+        function renderEventCard(event) {
+            return `
                 <div class="event-card">
                     <h3 class="event-title">${event.title || 'Untitled Event'}</h3>
-                    <div class="event-date">${formatDate(event.date || new Date().toISOString().split('T')[0])}</div>
+                    <div class="event-date">${formatDate(event.date || event.startDate || new Date().toISOString().split('T')[0])}${event.endDate ? ' - ' + formatDate(event.endDate) : ''}</div>
                     ${event.location ? `<div style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 15px; display: flex; align-items: center; gap: 5px;">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -284,7 +429,92 @@
                         </svg>
                     </a>` : ''}
                 </div>
-            `).join('');
+            `;
+        }
+        
+        function loadEvents(events = null) {
+            const eventsList = document.getElementById('eventsList');
+            
+            if (!events || events.length === 0) {
+                eventsList.innerHTML = `
+                    <div class="no-events">
+                        <h3>No events available</h3>
+                        <p>Check back soon for updates on SpecimenPro releases and news.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Categorize events
+            const { live, upcoming, past } = categorizeEvents(events);
+            
+            // Hide the fallback container
+            eventsList.style.display = 'none';
+            
+            // Live Events
+            const liveSection = document.getElementById('liveSection');
+            const liveEventsContainer = document.getElementById('liveEvents');
+            const liveBadge = document.getElementById('liveBadge');
+            
+            if (live.length > 0) {
+                liveSection.style.display = 'block';
+                liveEventsContainer.innerHTML = live.map(renderEventCard).join('');
+                liveBadge.textContent = live.length;
+            } else {
+                liveSection.style.display = 'none';
+            }
+            
+            // Upcoming Events
+            const upcomingSection = document.getElementById('upcomingSection');
+            const upcomingEventsContainer = document.getElementById('upcomingEvents');
+            const upcomingBadge = document.getElementById('upcomingBadge');
+            
+            if (upcoming.length > 0) {
+                upcomingSection.style.display = 'block';
+                upcomingEventsContainer.innerHTML = upcoming.map(renderEventCard).join('');
+                upcomingBadge.textContent = upcoming.length;
+            } else {
+                upcomingSection.style.display = 'none';
+            }
+            
+            // Past Events
+            const pastSection = document.getElementById('pastSection');
+            const pastEventsContainer = document.getElementById('pastEvents');
+            const pastBadge = document.getElementById('pastBadge');
+            
+            if (past.length > 0) {
+                pastSection.style.display = 'block';
+                pastEventsContainer.innerHTML = past.map(renderEventCard).join('');
+                pastBadge.textContent = past.length;
+            } else {
+                pastSection.style.display = 'none';
+            }
+            
+            // If no events in any category, show message
+            if (live.length === 0 && upcoming.length === 0 && past.length === 0) {
+                eventsList.style.display = 'block';
+                eventsList.innerHTML = `
+                    <div class="no-events">
+                        <h3>No events available</h3>
+                        <p>Check back soon for updates on SpecimenPro releases and news.</p>
+                    </div>
+                `;
+            }
+        }
+        
+        function togglePastEvents() {
+            const content = document.getElementById('pastEventsContent');
+            const toggle = document.getElementById('pastToggle');
+            const toggleText = document.getElementById('toggleText');
+            
+            content.classList.toggle('collapsed');
+            toggle.classList.toggle('collapsed');
+            
+            if (content.classList.contains('collapsed')) {
+                toggleText.textContent = 'Expand';
+            } else {
+                toggleText.textContent = 'Collapse';
+            }
         }
 
         function showLoadingState() {

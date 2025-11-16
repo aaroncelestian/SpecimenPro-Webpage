@@ -4,81 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - SpecimenPro</title>
-    <meta name="description" content="Frequently asked questions about SpecimenPro - Professional Field Collection Manager">
+    <meta name="description" content="Frequently asked questions about SpecimenPro - Track your collection beautifully">
+    <link rel="stylesheet" href="specimenpro-style.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #2c5f8d;
-            --secondary-color: #4a90c8;
-            --accent-color: #e67e22;
-            --text-dark: #2c3e50;
-            --text-light: #7f8c8d;
-            --bg-light: #f8f9fa;
-            --white: #ffffff;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-light);
-        }
-
-        .container {
+        .faq-section {
             max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 60px 20px;
         }
 
-        /* Header */
-        header {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        .faq-category {
+            margin-bottom: 50px;
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.5rem;
-            font-weight: 700;
+        .faq-category h2 {
+            font-size: 2rem;
             color: var(--primary-color);
-            text-decoration: none;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
+        .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .nav-links a {
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .faq-answer {
             color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+            line-height: 1.8;
         }
 
-        .nav-links a:hover {
-            color: var(--secondary-color);
+        .faq-answer ul, .faq-answer ol {
+            margin: 15px 0 15px 25px;
         }
 
-        /* Hero */
+        .faq-answer li {
+            margin: 8px 0;
+        }
+
+        .highlight-box {
+            background: var(--bg-light);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
         .hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: var(--white);
@@ -95,119 +77,6 @@
             font-size: 1.2rem;
             opacity: 0.95;
         }
-
-        /* FAQ Section */
-        .faq-section {
-            padding: 60px 0;
-        }
-
-        .faq-category {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        .faq-category h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            border-bottom: 2px solid var(--bg-light);
-            padding-bottom: 0.5rem;
-        }
-
-        .faq-item {
-            margin-bottom: 2rem;
-        }
-
-        .faq-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .faq-question {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 0.75rem;
-        }
-
-        .faq-answer {
-            color: var(--text-dark);
-            line-height: 1.8;
-        }
-
-        .faq-answer ul {
-            margin: 1rem 0;
-            padding-left: 2rem;
-        }
-
-        .faq-answer li {
-            margin-bottom: 0.5rem;
-        }
-
-        .faq-answer strong {
-            color: var(--primary-color);
-        }
-
-        .highlight-box {
-            background: var(--bg-light);
-            border-left: 4px solid var(--accent-color);
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 4px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: var(--white);
-            padding: 2rem 0;
-            text-align: center;
-            margin-top: 4rem;
-        }
-
-        footer a {
-            color: var(--secondary-color);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .faq-category {
-                padding: 1.5rem;
-            }
-
-            .faq-category h2 {
-                font-size: 1.5rem;
-            }
-
-            .faq-question {
-                font-size: 1.1rem;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -222,8 +91,10 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#features">Features</a></li>
                 <li><a href="index.html#pricing">Pricing</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="faq.html" style="color: var(--secondary-color);">FAQ</a></li>
                 <li><a href="index.html#help">Help</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="docs/privacy_policy.html">Privacy</a></li>
             </ul>
         </nav>
     </header>
@@ -232,7 +103,7 @@
     <section class="hero">
         <div class="container">
             <h1>Frequently Asked Questions</h1>
-            <p>Everything you need to know about SpecimenPro</p>
+            <p>Everything you need to know about organizing your collection</p>
         </div>
     </section>
 
@@ -245,108 +116,205 @@
                 <h2>Getting Started</h2>
                 
                 <div class="faq-item">
-                    <div class="faq-question">Q: How do I get started with SpecimenPro?</div>
+                    <div class="faq-question">Q: What can I catalog with SpecimenPro?</div>
+                    <div class="faq-answer">
+                        <p><strong>Anything you collect from nature!</strong> Rocks, minerals, fossils, insects, shells, pressed plants, feathers—if you collect it, you can catalog it. Our flexible system adapts to whatever information matters to your hobby.</p>
+                        <p>Popular collections include:</p>
+                        <ul>
+                            <li>Mineral and rock collections</li>
+                            <li>Insect collections (butterflies, beetles, etc.)</li>
+                            <li>Fossil collections</li>
+                            <li>Shell collections</li>
+                            <li>Pressed plant herbaria</li>
+                            <li>Feather collections</li>
+                            <li>Any natural history specimens</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: I'm not a scientist. Is this too complicated for me?</div>
+                    <div class="faq-answer">
+                        <p><strong>Not at all!</strong> SpecimenPro is designed for collectors of all experience levels. If you can take a photo with your iPhone, you can catalog specimens.</p>
+                        <p>Many users are hobbyists who just want to organize and remember their finds. The app has professional features if you need them, but you can start simple and add more detail as you go.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: How do I get started?</div>
                     <div class="faq-answer">
                         <p>Getting started is easy:</p>
                         <ol>
                             <li>Download SpecimenPro from the App Store</li>
                             <li>Launch the app—demo data loads automatically</li>
-                            <li>Tap "Demo Mineral Collection" to explore 5 pre-loaded specimens</li>
-                            <li>Try scanning the QR codes to see how quick access works</li>
+                            <li>Explore the demo collection to see how it works</li>
                             <li>Create your own collection when you're ready</li>
+                            <li>Start adding your finds with photos and notes</li>
                         </ol>
-                        <p>The demo collection includes complete documentation examples to help you understand all features.</p>
+                        <p>No setup required—just start cataloging!</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">Q: Does SpecimenPro work offline?</div>
+                    <div class="faq-question">Q: Do I need to be a museum or institution?</div>
                     <div class="faq-answer">
-                        <p><strong>Yes, completely!</strong> SpecimenPro is designed with an offline-first approach, making it perfect for field research in remote locations.</p>
-                        <div class="highlight-box">
-                            <strong>Key Points:</strong>
-                            <ul>
-                                <li>No internet connection required for any features</li>
-                                <li>All data stored locally on your device</li>
-                                <li>iCloud sync is optional and can be disabled</li>
-                                <li>Camera, AR measurements, and voice notes all work offline</li>
-                            </ul>
-                        </div>
+                        <p><strong>Nope!</strong> SpecimenPro is built for individual collectors. Whether you have 20 specimens or 2,000, it scales to your personal collection.</p>
+                        <p>While some museums and researchers use it, the app is designed for anyone who loves collecting. You don't need institutional credentials or special training.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Features & Functionality -->
+            <!-- Importing Data -->
             <div class="faq-category">
-                <h2>Features & Functionality</h2>
+                <h2>Importing Your Collection</h2>
                 
                 <div class="faq-item">
-                    <div class="faq-question">Q: What are "Transactions" in SpecimenPro?</div>
+                    <div class="faq-question">Q: Can I import my existing collection list?</div>
                     <div class="faq-answer">
-                        <p><strong>Transactions track specimen movements and activities</strong>—this is standard museum collection management terminology used in professional systems like EMu, Specify, and Arctos.</p>
+                        <p><strong>Yes!</strong> Upload any CSV or Excel file. We read your column headers and automatically create matching fields. No template required, no reformatting needed.</p>
                         <div class="highlight-box">
-                            <strong>Transaction Types:</strong>
+                            <strong>Import Features:</strong>
                             <ul>
-                                <li><strong>Loans:</strong> Temporary transfers to institutions or individuals</li>
-                                <li><strong>Photography:</strong> Documentation sessions</li>
-                                <li><strong>Exhibitions:</strong> Public display periods</li>
-                                <li><strong>Sales/Trades:</strong> Permanent transfers</li>
+                                <li>Flexible CSV/Excel import</li>
+                                <li>Reads any column headers</li>
+                                <li>Automatically maps your fields</li>
+                                <li>Import hundreds of specimens at once</li>
                             </ul>
-                            <p><em>Note: These are NOT financial transactions—they track specimen history and location.</em></p>
+                            <p><em>Note: Importing large collections requires the full version ($9.99) since the free version is limited to 30 specimens total.</em></p>
                         </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: What if I have hundreds of photos to add?</div>
+                    <div class="faq-answer">
+                        <p><strong>Use our batch photo import!</strong> Just name your photos with catalog numbers (like "MIN-001.jpg") and upload the whole folder. SpecimenPro automatically links each photo to the right specimen.</p>
+                        <p>This saves hours of manual work and lets you import your entire photo library at once.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: Can I export my data if I want to switch systems later?</div>
+                    <div class="faq-answer">
+                        <p><strong>Absolutely.</strong> Export to CSV anytime with one click. Your data is never locked in.</p>
+                        <p>Export options include:</p>
+                        <ul>
+                            <li><strong>CSV:</strong> Open in Excel or Google Sheets</li>
+                            <li><strong>SQLite:</strong> Full database for analysis</li>
+                            <li><strong>ZIP Archive:</strong> Complete collection with all photos</li>
+                        </ul>
+                        <p>Your data stays yours, always.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="faq-category">
+                <h2>Features & How-To</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Does it work offline?</div>
+                    <div class="faq-answer">
+                        <p><strong>Yes, completely!</strong> SpecimenPro is designed to work anywhere, even with no cell service. Perfect for field collecting in remote locations.</p>
+                        <p>Everything works offline:</p>
+                        <ul>
+                            <li>Add new specimens</li>
+                            <li>Take photos</li>
+                            <li>Record voice notes</li>
+                            <li>Use AR measurements</li>
+                            <li>Search your collection</li>
+                        </ul>
+                        <p>When you're back online, everything syncs automatically if you have iCloud enabled.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">Q: How do QR codes work?</div>
                     <div class="faq-answer">
-                        <p>QR codes provide instant access to specimens and locations:</p>
+                        <p>QR codes give you instant access to specimens and locations:</p>
                         <ul>
-                            <li><strong>Specimen QR Codes:</strong> Generate unique codes for each specimen. Scanning opens that specimen directly.</li>
-                            <li><strong>Location QR Codes:</strong> Create codes for physical locations (cabinets, drawers). Scanning filters your collection to show only specimens in that location.</li>
-                            <li><strong>Quick Access:</strong> Print codes and attach them to storage containers or specimen labels for instant retrieval.</li>
+                            <li><strong>Specimen QR Codes:</strong> Generate a code for each specimen. Scan it to open that specimen instantly.</li>
+                            <li><strong>Location QR Codes:</strong> Create codes for drawers or cabinets. Scan to see everything stored there.</li>
+                            <li><strong>Print & Attach:</strong> Print codes and stick them on storage containers for quick access.</li>
                         </ul>
+                        <p>It's like having a barcode scanner for your collection!</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">Q: Can I export my data?</div>
+                    <div class="faq-question">Q: Can I track where I found specimens?</div>
                     <div class="faq-answer">
-                        <p><strong>Yes! Your data is never locked in.</strong> SpecimenPro offers multiple export formats:</p>
+                        <p><strong>Yes!</strong> SpecimenPro captures GPS coordinates automatically when you add specimens in the field. You can:</p>
                         <ul>
-                            <li><strong>CSV:</strong> Open in Excel, Google Sheets, or import into other systems</li>
-                            <li><strong>SQLite:</strong> Full database export for analysis in Python, R, or other tools</li>
-                            <li><strong>ZIP Archive:</strong> Complete collection with all photos, files, and a README</li>
+                            <li>See find locations on a map</li>
+                            <li>Add location names and notes</li>
+                            <li>View all specimens from a specific area</li>
+                            <li>Track your collecting trips over time</li>
                         </ul>
-                        <p>All exports include complete metadata and are designed for professional use.</p>
+                        <p>Never forget where you found that perfect specimen!</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">Q: How does AR measurement work?</div>
                     <div class="faq-answer">
-                        <p>SpecimenPro uses Apple's ARKit to capture accurate 3D dimensions:</p>
+                        <p>Point your iPhone camera at a specimen and get instant measurements using augmented reality. No ruler needed!</p>
                         <ol>
                             <li>Open any specimen and tap "AR Measurement"</li>
-                            <li>Point your camera at a flat surface to establish a reference plane</li>
+                            <li>Point your camera at a flat surface</li>
                             <li>Place measurement points on your specimen</li>
-                            <li>The app calculates length, width, height, and volume</li>
+                            <li>Get length, width, height, and volume automatically</li>
                         </ol>
-                        <p>This provides non-contact measurements perfect for delicate specimens.</p>
+                        <p>Perfect for measuring delicate specimens without touching them.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">Q: Can I add custom metadata fields?</div>
+                    <div class="faq-question">Q: Can I customize what information I track?</div>
                     <div class="faq-answer">
-                        <p><strong>Yes!</strong> Each collection can have custom metadata fields tailored to your needs. This allows you to track:</p>
+                        <p><strong>Absolutely!</strong> Add custom fields to track whatever matters to you:</p>
                         <ul>
-                            <li>Locality information</li>
-                            <li>Acquisition details</li>
-                            <li>Scientific classifications</li>
-                            <li>Condition notes</li>
-                            <li>Any other data relevant to your collection</li>
+                            <li>GPS coordinates for rocks</li>
+                            <li>Host plants for insects</li>
+                            <li>Dive depth for shells</li>
+                            <li>Formation names for fossils</li>
+                            <li>Collection dates and locations</li>
+                            <li>Anything else you want to remember</li>
                         </ul>
+                        <p>Your collection, your way.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sharing & Collaboration -->
+            <div class="faq-category">
+                <h2>Sharing & Collaboration</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Can I share my collection with other collectors?</div>
+                    <div class="faq-answer">
+                        <p><strong>Yes!</strong> Export your database and share it with fellow collectors. They can import it into their own SpecimenPro app.</p>
+                        <p>Great for:</p>
+                        <ul>
+                            <li>Sharing with collector friends</li>
+                            <li>Trading specimens (track what went where)</li>
+                            <li>Showing your collection to clubs or groups</li>
+                            <li>Teaching others about your finds</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: Can I track loans and trades?</div>
+                    <div class="faq-answer">
+                        <p><strong>Yes!</strong> Keep track of specimens you've loaned to friends or traded with other collectors:</p>
+                        <ul>
+                            <li>Record who has what</li>
+                            <li>Set return dates with reminders</li>
+                            <li>Save contact information</li>
+                            <li>View complete history</li>
+                        </ul>
+                        <p>Never lose track of your loaned specimens again!</p>
                     </div>
                 </div>
             </div>
@@ -356,18 +324,18 @@
                 <h2>Privacy & Data Security</h2>
                 
                 <div class="faq-item">
-                    <div class="faq-question">Q: What data does SpecimenPro collect?</div>
+                    <div class="faq-question">Q: What data does SpecimenPro collect about me?</div>
                     <div class="faq-answer">
                         <div class="highlight-box">
                             <strong>None. Zero. Nothing.</strong>
                             <ul>
                                 <li>No analytics or tracking</li>
                                 <li>No third-party SDKs</li>
-                                <li>No external network requests</li>
+                                <li>No ads</li>
                                 <li>No data collection of any kind</li>
                             </ul>
                         </div>
-                        <p>Your data stays on your device or in your private iCloud account. The developer cannot access your data.</p>
+                        <p>Your collection data stays on your device or in your private iCloud. I can't see your data and don't want to.</p>
                     </div>
                 </div>
 
@@ -376,28 +344,27 @@
                     <div class="faq-answer">
                         <p>iCloud sync is <strong>optional and private</strong>:</p>
                         <ul>
-                            <li>Data syncs directly between <strong>your own devices</strong> via your private iCloud account</li>
-                            <li>The developer has no access to your iCloud data</li>
-                            <li>You can disable iCloud sync at any time</li>
-                            <li>Automatic conflict resolution when you edit on multiple devices</li>
+                            <li>Syncs between <strong>your own devices</strong> only</li>
+                            <li>Uses your personal iCloud account</li>
+                            <li>I have no access to your iCloud data</li>
+                            <li>You can disable it anytime</li>
+                            <li>Automatic conflict resolution</li>
                         </ul>
                         <p>Your data never passes through any third-party servers.</p>
-                        <div class="highlight-box" style="margin-top: 1rem;">
-                            <strong>Note:</strong> Only one user can access a database at a time. For team collaboration, see the database sharing question below.
-                        </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">Q: Where is my data stored?</div>
+                    <div class="faq-question">Q: What happens to my data if I stop using the app?</div>
                     <div class="faq-answer">
-                        <p>All data is stored in a SQLite database on your device:</p>
+                        <p>Your data stays yours forever:</p>
                         <ul>
-                            <li><strong>Local Storage:</strong> Primary database on your iPhone/iPad</li>
-                            <li><strong>iCloud (Optional):</strong> Encrypted backup in your private iCloud account</li>
-                            <li><strong>Exports:</strong> You control where exported files go</li>
+                            <li>Export everything to CSV before you leave</li>
+                            <li>Open your exports in Excel, Google Sheets, or any database</li>
+                            <li>Keep all your photos and files</li>
+                            <li>No data is lost or locked away</li>
                         </ul>
-                        <p>The database uses foreign key constraints and transaction-based operations to ensure data integrity.</p>
+                        <p>You're never trapped in SpecimenPro. Your collection data is portable.</p>
                     </div>
                 </div>
             </div>
@@ -409,184 +376,73 @@
                 <div class="faq-item">
                     <div class="faq-question">Q: How much does SpecimenPro cost?</div>
                     <div class="faq-answer">
-                        <p><strong>$9.99 one-time purchase.</strong> No subscription, no recurring fees.</p>
+                        <p><strong>Free to download and try!</strong> No credit card required.</p>
                         <div class="highlight-box">
-                            <strong>What's Included:</strong>
+                            <strong>Free Version Includes:</strong>
                             <ul>
-                                <li>All features—nothing held back</li>
-                                <li>Unlimited collections and specimens</li>
-                                <li>Free updates for the current major version</li>
-                                <li>No feature limitations</li>
-                                <li>No ads</li>
+                                <li>3 collections</li>
+                                <li>10 specimens per collection (30 total)</li>
+                                <li>Unlimited event participation</li>
+                                <li>All features unlocked</li>
+                                <li>No time limit—use free forever</li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: Why no subscription?</div>
-                    <div class="faq-answer">
-                        <p>SpecimenPro is designed for long-term collection management. A one-time purchase makes sense because:</p>
+                        <p><strong>Full Version: $9.99 one-time purchase</strong></p>
                         <ul>
-                            <li>Your collection data should be accessible forever, not dependent on maintaining a subscription</li>
-                            <li>Field researchers and museums need predictable costs</li>
-                            <li>The app works offline—there are no ongoing server costs to support</li>
-                            <li>It's the right model for a professional tool</li>
+                            <li>Unlimited collections and specimens</li>
+                            <li>All features unlocked</li>
+                            <li>Free updates</li>
+                            <li>No subscription, no recurring charges</li>
                         </ul>
+                        <p>Try it free, upgrade when you're ready. Pay once, use forever.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">Q: Are there any in-app purchases?</div>
+                    <div class="faq-question">Q: What's the difference between free and paid versions?</div>
                     <div class="faq-answer">
-                        <p><strong>No.</strong> The $9.99 purchase includes everything. There are no hidden costs, premium tiers, or feature unlocks.</p>
+                        <p><strong>Free version has limits on collection size, paid version is unlimited.</strong></p>
+                        <p><strong>Free Version:</strong></p>
+                        <ul>
+                            <li>3 collections maximum</li>
+                            <li>10 specimens per collection</li>
+                            <li>All features work (photos, AR, GPS, voice notes, etc.)</li>
+                            <li>Perfect for small collections or trying the app</li>
+                        </ul>
+                        <p><strong>Full Version ($9.99):</strong></p>
+                        <ul>
+                            <li>Unlimited collections</li>
+                            <li>Unlimited specimens</li>
+                            <li>Same features, no limits</li>
+                            <li>One-time purchase, no subscription</li>
+                        </ul>
+                        <p>Start free and upgrade anytime from within the app when you need more space.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: What platforms does SpecimenPro support?</div>
+                    <div class="faq-answer">
+                        <p><strong>iPhone and iPad</strong> running iOS 16 or later.</p>
+                        <p>The app is optimized for mobile collecting in the field, with full support for:</p>
+                        <ul>
+                            <li>iPhone (all models with ARKit support)</li>
+                            <li>iPad (all models with ARKit support)</li>
+                            <li>Works on both portrait and landscape</li>
+                        </ul>
+                        <p>Android and desktop versions are not currently available.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Technical Questions -->
+            <!-- Still Have Questions? -->
             <div class="faq-category">
-                <h2>Technical Questions</h2>
+                <h2>Still Have Questions?</h2>
                 
                 <div class="faq-item">
-                    <div class="faq-question">Q: What devices are supported?</div>
                     <div class="faq-answer">
-                        <p>SpecimenPro runs on:</p>
-                        <ul>
-                            <li>iPhone (iOS 16.0 or later)</li>
-                            <li>iPad (iPadOS 16.0 or later)</li>
-                        </ul>
-                        <p>AR measurement features require devices with ARKit support (iPhone 6s or later, iPad 5th generation or later).</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: How much storage does the app use?</div>
-                    <div class="faq-answer">
-                        <p>The app itself is small, but storage depends on your collection:</p>
-                        <ul>
-                            <li><strong>App Size:</strong> ~50 MB</li>
-                            <li><strong>Photos:</strong> Compressed to save space while maintaining quality</li>
-                            <li><strong>Database:</strong> Very efficient—metadata uses minimal space</li>
-                            <li><strong>Attachments:</strong> Depends on what you attach (PDFs, voice notes, etc.)</li>
-                        </ul>
-                        <p>A collection with hundreds of specimens typically uses less than 1 GB.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: Can I use SpecimenPro on multiple devices?</div>
-                    <div class="faq-answer">
-                        <p><strong>Yes!</strong> Your purchase works on all your devices signed in with the same Apple ID.</p>
-                        <ul>
-                            <li>Enable iCloud sync to keep <strong>your</strong> collections synchronized across <strong>your</strong> devices</li>
-                            <li>Or use each device independently with local storage</li>
-                            <li>Export/import to move collections between devices manually</li>
-                        </ul>
-                        <p><em>Note: iCloud sync is for your personal devices only. Only one user can access a database at a time.</em></p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: Can I share my collection database with other users or team members?</div>
-                    <div class="faq-answer">
-                        <p><strong>Yes, through export and import!</strong> While only one user can access a database at a time, you can share collections with others:</p>
-                        <ol>
-                            <li>Export your collection as a SQLite database</li>
-                            <li>Share the file via Dropbox, email, or any file-sharing method</li>
-                            <li>Other users can import the database into their SpecimenPro app</li>
-                            <li>The app includes automatic conflict resolution when importing</li>
-                        </ol>
-                        <div class="highlight-box">
-                            <strong>Perfect for:</strong>
-                            <ul>
-                                <li>Research teams sharing specimen data</li>
-                                <li>Museum departments collaborating on collections</li>
-                                <li>Field teams consolidating observations</li>
-                                <li>Backing up and distributing collection snapshots</li>
-                            </ul>
-                        </div>
-                        <p>This workflow ensures data integrity while allowing flexible collaboration through standard file-sharing tools.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: What file formats can I attach to specimens?</div>
-                    <div class="faq-answer">
-                        <p>You can attach most common file types:</p>
-                        <ul>
-                            <li><strong>Documents:</strong> PDF, DOC, DOCX, TXT</li>
-                            <li><strong>Spreadsheets:</strong> XLS, XLSX, CSV</li>
-                            <li><strong>Images:</strong> JPG, PNG, HEIC</li>
-                            <li><strong>Audio:</strong> Voice notes recorded in-app</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Use Cases -->
-            <div class="faq-category">
-                <h2>Who Uses SpecimenPro?</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Q: Is SpecimenPro only for scientists?</div>
-                    <div class="faq-answer">
-                        <p><strong>No!</strong> While designed by a scientist for professional use, SpecimenPro is perfect for anyone managing collections:</p>
-                        <ul>
-                            <li><strong>Professional:</strong> Geologists, paleontologists, museum curators, research labs</li>
-                            <li><strong>Academic:</strong> University collections, teaching specimens</li>
-                            <li><strong>Hobbyist:</strong> Mineral collectors, fossil enthusiasts, natural history hobbyists</li>
-                            <li><strong>General:</strong> Any collection that needs professional documentation</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: Can I use it for non-scientific collections?</div>
-                    <div class="faq-answer">
-                        <p><strong>Absolutely!</strong> The flexible design works for any collection type. Users have successfully used SpecimenPro for:</p>
-                        <ul>
-                            <li>Art collections</li>
-                            <li>Antiques and collectibles</li>
-                            <li>Home inventory for insurance</li>
-                            <li>Equipment tracking</li>
-                            <li>Library cataloging</li>
-                        </ul>
-                        <p>The custom metadata fields adapt to any collection type.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Support -->
-            <div class="faq-category">
-                <h2>Support & Help</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Q: How do I get help if I have issues?</div>
-                    <div class="faq-answer">
-                        <p>Support is available through:</p>
-                        <ul>
-                            <li><strong>Help Form:</strong> Use the <a href="index.html#help" style="color: var(--secondary-color);">contact form</a> on the website</li>
-                            <li><strong>In-App Demo:</strong> The demo collection includes examples of all features</li>
-                            <li><strong>Documentation:</strong> Detailed guides available on the website</li>
-                        </ul>
-                        <p>Response time is typically within 24-48 hours.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: Can I request new features?</div>
-                    <div class="faq-answer">
-                        <p><strong>Yes!</strong> Feature requests are welcome. Use the <a href="index.html#help" style="color: var(--secondary-color);">contact form</a> to share your ideas. While not every request can be implemented, user feedback directly influences development priorities.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: Is there a user manual?</div>
-                    <div class="faq-answer">
-                        <p><strong>Yes! There's a detailed built-in help menu in the app.</strong></p>
-                        <p>Tap the <strong>question mark (?) icon in the top left corner</strong> of the app to access comprehensive help documentation that describes all features and how to use them.</p>
-                        <p>Additionally, the demo collection includes working examples of all features, and video tutorials are available on the website.</p>
+                        <p>Can't find what you're looking for? I'm here to help!</p>
+                        <p><a href="index.html#help" style="color: var(--secondary-color); font-weight: 600;">Contact Support →</a></p>
                     </div>
                 </div>
             </div>
@@ -595,14 +451,14 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer style="background: var(--text-dark); color: var(--white); padding: 40px 0; margin-top: 60px;">
         <div class="container">
-            <p>Copyright © 2025 Aaron Celestian. All rights reserved.</p>
-            <p style="margin-top: 0.5rem;">
-                <a href="index.html">Home</a> | 
-                <a href="docs/privacy_policy.html">Privacy Policy</a> | 
-                <a href="index.html#help">Contact</a>
-            </p>
+            <div style="text-align: center;">
+                <p>&copy; 2025 SpecimenPro. All rights reserved.</p>
+                <p style="margin-top: 10px;">
+                    <a href="docs/privacy_policy.html" style="color: var(--secondary-color); text-decoration: none;">Privacy Policy</a>
+                </p>
+            </div>
         </div>
     </footer>
 </body>

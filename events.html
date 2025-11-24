@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpecimenPro Events - Latest Updates & News</title>
+    <meta name="description" content="Stay updated with the latest SpecimenPro events, updates, and news. See what's happening in the SpecimenPro community.">
+    <link rel="stylesheet" href="specimenpro-style.css">
+    <style>
+        .events-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .events-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .event-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .event-type {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .event-type.release { background: #28a745; }
+        .event-type.update { background: #17a2b8; }
+        .event-type.feature { background: #6f42c1; }
+        .event-type.community { background: #fd7e14; }
+        
+        .event-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .event-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .event-description {
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .event-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .event-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .no-events {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-light);
+        }
+        
+        .no-events h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .github-link {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+        
+        .github-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .github-link a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .events-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        .section-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .section-badge.live {
+            background: #28a745;
+            animation: pulse 2s infinite;
+        }
+        
+        .section-badge.upcoming {
+            background: #17a2b8;
+        }
+        
+        .section-badge.past {
+            background: #6c757d;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .collapse-toggle {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .collapse-toggle:hover {
+            background: var(--bg-light);
+        }
+        
+        .collapse-toggle svg {
+            transition: transform 0.3s;
+        }
+        
+        .collapse-toggle.collapsed svg {
+            transform: rotate(-90deg);
+        }
+        
+        .collapsible-content {
+            max-height: 5000px;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.3s;
+            opacity: 1;
+        }
+        
+        .collapsible-content.collapsed {
+            max-height: 0;
+            opacity: 0;
+        }
+        
+        .empty-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 768px) {
+            .events-container {
+                padding: 20px 15px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .event-card {
+                padding: 20px;
+            }
+            
+            .event-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="docs/SpecimenPro_S_Icon_light_1024x1024.png" alt="SpecimenPro Logo" style="width: 50px; height: 50px; border-radius: 12px;">
+                <span>SpecimenPro</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#screenshots">Screenshots</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="index.html#help">Help</a></li>
+                <li><a href="events.html" style="color: var(--secondary-color);">Events</a></li>
+                <li><a href="docs/privacy_policy.html">Privacy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Events Section -->
+    <main class="events-container">
+        <div class="page-header">
+            <h1>SpecimenPro Events</h1>
+            <p>Stay updated with the latest releases, features, and community news from SpecimenPro</p>
+        </div>
+
+        <!-- Live Events -->
+        <div class="events-section" id="liveSection" style="display: none;">
+            <div class="section-header">
+                <h2>Live Events</h2>
+                <span class="section-badge live" id="liveBadge">0</span>
+            </div>
+            <div class="events-list" id="liveEvents"></div>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div class="events-section" id="upcomingSection" style="display: none;">
+            <div class="section-header">
+                <h2>Upcoming Events</h2>
+                <span class="section-badge upcoming" id="upcomingBadge">0</span>
+            </div>
+            <div class="events-list" id="upcomingEvents"></div>
+        </div>
+
+        <!-- Past Events -->
+        <div class="events-section" id="pastSection" style="display: none;">
+            <div class="section-header">
+                <h2>Past Events</h2>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span class="section-badge past" id="pastBadge">0</span>
+                    <button class="collapse-toggle" id="pastToggle" onclick="togglePastEvents()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                        <span id="toggleText">Collapse</span>
+                    </button>
+                </div>
+            </div>
+            <div class="collapsible-content" id="pastEventsContent">
+                <div class="events-list" id="pastEvents"></div>
+            </div>
+        </div>
+
+        <!-- Loading/Empty State -->
+        <div class="events-list" id="eventsList">
+            <!-- Fallback container -->
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: var(--text-dark); color: var(--white); padding: 40px 0; margin-top: 60px;">
+        <div class="container">
+            <div style="text-align: center;">
+                <p>&copy; 2025 SpecimenPro. All rights reserved.</p>
+                <p style="margin-top: 10px;">
+                    <a href="docs/privacy_policy.html" style="color: var(--secondary-color); text-decoration: none;">Privacy Policy</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Configuration - Update this URL to your actual events.json file
+        const EVENTS_JSON_URL = 'https://raw.githubusercontent.com/aaroncelestian/specimenpro-events/main/events.json';
+        const LOCAL_EVENTS_URL = './events.json'; // Local fallback
+
+        // Sample events data - fallback when JSON loading fails
+        const sampleEvents = [
+            {
+                type: "release",
+                title: "SpecimenPro 2.1 Released",
+                date: "2025-01-15",
+                description: "Major update with new AR measurement features, improved photo capture, and enhanced data export capabilities. This release includes bug fixes and performance improvements based on user feedback.",
+                link: "https://github.com/SpecimenPro/SpecimenPro/releases/tag/v2.1.0"
+            },
+            {
+                type: "feature",
+                title: "New Template System Added",
+                date: "2025-01-10",
+                description: "Introducing customizable templates for different collection types. Create and share templates for paleontology, entomology, botany, and more. Import/export functionality included.",
+                link: "https://github.com/SpecimenPro/SpecimenPro/issues/123"
+            },
+            {
+                type: "update",
+                title: "iOS 18 Compatibility Update",
+                date: "2025-01-05",
+                description: "Full compatibility with iOS 18 and latest iPhone models. Enhanced performance on newer devices and improved integration with system features.",
+                link: "https://github.com/SpecimenPro/SpecimenPro/pull/145"
+            },
+            {
+                type: "community",
+                title: "User Community Forum Launch",
+                date: "2024-12-20",
+                description: "Join our new community forum to share tips, ask questions, and connect with other SpecimenPro users. Feature requests and feedback welcome!",
+                link: "https://github.com/SpecimenPro/SpecimenPro/discussions"
+            },
+            {
+                type: "release",
+                title: "SpecimenPro 2.0.5 Maintenance Release",
+                date: "2024-12-15",
+                description: "Bug fixes and stability improvements. Resolved issues with data sync, photo storage, and voice recording on certain devices.",
+                link: "https://github.com/SpecimenPro/SpecimenPro/releases/tag/v2.0.5"
+            }
+        ];
+
+        function categorizeEvents(events) {
+            const live = [];
+            const upcoming = [];
+            const past = [];
+            
+            events.forEach(event => {
+                // Use the status field from JSON if available, otherwise calculate from dates
+                if (event.status) {
+                    if (event.status === 'live') {
+                        live.push(event);
+                    } else if (event.status === 'upcoming') {
+                        upcoming.push(event);
+                    } else if (event.status === 'past') {
+                        past.push(event);
+                    }
+                } else {
+                    // Fallback to date calculation for events without status field
+                    const now = new Date();
+                    now.setHours(0, 0, 0, 0);
+                    
+                    const startDate = new Date(event.date || event.startDate);
+                    const endDate = event.endDate ? new Date(event.endDate) : startDate;
+                    
+                    startDate.setHours(0, 0, 0, 0);
+                    endDate.setHours(23, 59, 59, 999);
+                    
+                    if (now >= startDate && now <= endDate) {
+                        live.push(event);
+                    } else if (now < startDate) {
+                        upcoming.push(event);
+                    } else {
+                        past.push(event);
+                    }
+                }
+            });
+            
+            return { live, upcoming, past };
+        }
+        
+        function renderEventCard(event) {
+            return `
+                <div class="event-card">
+                    <h3 class="event-title">${event.title || 'Untitled Event'}</h3>
+                    <div class="event-date">${formatDate(event.date || event.startDate || new Date().toISOString().split('T')[0])}${event.endDate ? ' - ' + formatDate(event.endDate) : ''}</div>
+                    ${event.location ? `<div style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 15px; display: flex; align-items: center; gap: 5px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        ${event.location}
+                    </div>` : ''}
+                    <p class="event-description">${event.description || 'No description available.'}</p>
+                    ${event.link ? `<a href="${event.link}" class="event-link" target="_blank" rel="noopener">
+                        Learn more 
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15,3 21,3 21,9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>` : ''}
+                </div>
+            `;
+        }
+        
+        function loadEvents(events = null) {
+            const eventsList = document.getElementById('eventsList');
+            
+            if (!events || events.length === 0) {
+                eventsList.innerHTML = `
+                    <div class="no-events">
+                        <h3>No events available</h3>
+                        <p>Check back soon for updates on SpecimenPro releases and news.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Categorize events
+            const { live, upcoming, past } = categorizeEvents(events);
+            
+            // Hide the fallback container
+            eventsList.style.display = 'none';
+            
+            // Live Events
+            const liveSection = document.getElementById('liveSection');
+            const liveEventsContainer = document.getElementById('liveEvents');
+            const liveBadge = document.getElementById('liveBadge');
+            
+            if (live.length > 0) {
+                liveSection.style.display = 'block';
+                liveEventsContainer.innerHTML = live.map(renderEventCard).join('');
+                liveBadge.textContent = live.length;
+            } else {
+                liveSection.style.display = 'none';
+            }
+            
+            // Upcoming Events
+            const upcomingSection = document.getElementById('upcomingSection');
+            const upcomingEventsContainer = document.getElementById('upcomingEvents');
+            const upcomingBadge = document.getElementById('upcomingBadge');
+            
+            if (upcoming.length > 0) {
+                upcomingSection.style.display = 'block';
+                upcomingEventsContainer.innerHTML = upcoming.map(renderEventCard).join('');
+                upcomingBadge.textContent = upcoming.length;
+            } else {
+                upcomingSection.style.display = 'none';
+            }
+            
+            // Past Events
+            const pastSection = document.getElementById('pastSection');
+            const pastEventsContainer = document.getElementById('pastEvents');
+            const pastBadge = document.getElementById('pastBadge');
+            
+            if (past.length > 0) {
+                pastSection.style.display = 'block';
+                pastEventsContainer.innerHTML = past.map(renderEventCard).join('');
+                pastBadge.textContent = past.length;
+            } else {
+                pastSection.style.display = 'none';
+            }
+            
+            // If no events in any category, show message
+            if (live.length === 0 && upcoming.length === 0 && past.length === 0) {
+                eventsList.style.display = 'block';
+                eventsList.innerHTML = `
+                    <div class="no-events">
+                        <h3>No events available</h3>
+                        <p>Check back soon for updates on SpecimenPro releases and news.</p>
+                    </div>
+                `;
+            }
+        }
+        
+        function togglePastEvents() {
+            const content = document.getElementById('pastEventsContent');
+            const toggle = document.getElementById('pastToggle');
+            const toggleText = document.getElementById('toggleText');
+            
+            content.classList.toggle('collapsed');
+            toggle.classList.toggle('collapsed');
+            
+            if (content.classList.contains('collapsed')) {
+                toggleText.textContent = 'Expand';
+            } else {
+                toggleText.textContent = 'Collapse';
+            }
+        }
+
+        function showLoadingState() {
+            const eventsList = document.getElementById('eventsList');
+            eventsList.innerHTML = `
+                <div style="text-align: center; padding: 60px 20px;">
+                    <div style="display: inline-block; width: 40px; height: 40px; border: 4px solid var(--bg-light); border-top: 4px solid var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                    <p style="margin-top: 20px; color: var(--text-light);">Loading events...</p>
+                </div>
+                <style>
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                </style>
+            `;
+        }
+
+        function showErrorState(message) {
+            const eventsList = document.getElementById('eventsList');
+            eventsList.innerHTML = `
+                <div class="no-events">
+                    <h3>Unable to load events</h3>
+                    <p>${message}</p>
+                    <p style="margin-top: 15px;">
+                        <button onclick="loadEventsFromGitHub()" style="background: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                            Try Again
+                        </button>
+                    </p>
+                </div>
+            `;
+        }
+
+        async function loadEventsFromGitHub() {
+            showLoadingState();
+            
+            try {
+                // Try local file first
+                const localResponse = await fetch(LOCAL_EVENTS_URL);
+                if (localResponse.ok) {
+                    const events = await localResponse.json();
+                    loadEvents(events);
+                    return;
+                }
+            } catch (error) {
+                console.log('Local events.json not found, trying GitHub...');
+            }
+
+            try {
+                // Try GitHub raw URL
+                const githubResponse = await fetch(EVENTS_JSON_URL);
+                if (!githubResponse.ok) {
+                    throw new Error(`GitHub file not found (${githubResponse.status})`);
+                }
+                
+                const data = await githubResponse.json();
+                // Handle nested structure - extract events array
+                const events = data.events || data;
+                
+                // Map the event fields to match our display format
+                const mappedEvents = events.map(event => ({
+                    title: event.title,
+                    date: event.startDate,
+                    startDate: event.startDate,
+                    endDate: event.endDate || null,
+                    status: event.status || null,
+                    description: event.description,
+                    link: event.link || null,
+                    type: event.type,
+                    location: event.location
+                }));
+                
+                loadEvents(mappedEvents);
+                
+            } catch (error) {
+                console.error('Failed to load events from GitHub:', error);
+                console.log('Using sample events data as fallback');
+                loadEvents(sampleEvents);
+            }
+        }
+
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString(undefined, options);
+        }
+
+        // Load events when page loads
+        document.addEventListener('DOMContentLoaded', loadEventsFromGitHub);
+    </script>
+</body>
+</html>

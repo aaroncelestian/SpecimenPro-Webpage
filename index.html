@@ -676,6 +676,44 @@
             }
         }
 
+        /* What's New Section */
+        .whats-new {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 1200px;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.3);
+            border-left: 5px solid #ffd700;
+        }
+        
+        .whats-new h2 {
+            color: white;
+            font-size: 1.8rem;
+            margin: 0 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .whats-new-badge {
+            background: #ffd700;
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .whats-new p {
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.7;
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
         /* Extra small devices (max 320px) */
         @media (max-width: 320px) {
             .hero h1 {
@@ -693,6 +731,20 @@
             .cta-button {
                 padding: 10px 25px;
                 font-size: 0.95rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .whats-new {
+                padding: 20px;
+                margin: 30px 20px;
+            }
+            
+            .whats-new h2 {
+                font-size: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
             }
         }
     </style>
@@ -727,6 +779,19 @@
             <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.9;">Free: 3 collections, 10 specimens each • Upgrade for unlimited</p>
         </div>
     </section>
+
+    <!-- What's New Section -->
+    <div class="container">
+        <div class="whats-new">
+            <h2>
+                What's New
+                <span class="whats-new-badge">Critical Fix</span>
+            </h2>
+            <p>
+                <strong>Restores access to collections for users who updated to v1.2.7.</strong> Your data was never lost, just temporarily inaccessible. All collections, objects, and photos are now visible again. We apologize for the inconvenience.
+            </p>
+        </div>
+    </div>
 
     <!-- Video Section -->
     <section class="video-section">
